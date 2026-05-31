@@ -1,0 +1,24 @@
+@model Category
+@{
+    ViewData["Title"] = "Редагувати категорію";
+}
+
+<div class="admin-nav">
+    <a href="/Admin/Categories" class="btn btn--outline btn--sm">← Назад до категорій</a>
+</div>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1>Редагувати категорію</h1>
+
+        <form method="post" asp-action="EditCategory">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name">Назва категорії</label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="form-error"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Зберегти</button>
+        </form>
+    </div>
+</div>

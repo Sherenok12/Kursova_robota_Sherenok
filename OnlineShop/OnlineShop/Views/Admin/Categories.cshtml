@@ -1,0 +1,44 @@
+@model List<Category>
+@{
+    ViewData["Title"] = "Адмін — Категорії";
+}
+
+<div class="admin-nav">
+    <a href="/Admin/Products" class="btn btn--outline btn--sm">Товари</a>
+    <a href="/Admin/Categories" class="btn btn--primary btn--sm">Категорії</a>
+</div>
+
+<div class="admin-header">
+    <h1 class="page-title">Управління категоріями</h1>
+    <a href="/Admin/CreateCategory" class="btn btn--primary">+ Додати категорію</a>
+</div>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Кількість товарів</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Name</td>
+                <td>@c.Products.Count</td>
+                <td>
+                    <div class="admin-table__actions">
+                        <a href="/Admin/EditCategory/@c.Id" class="btn btn--outline btn--sm">✏️</a>
+                        <form method="post" asp-action="DeleteCategory" asp-route-id="@c.Id"
+                              onsubmit="return confirm('Видалити категорію?')">
+                            <button type="submit" class="btn btn--danger btn--sm">🗑️</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

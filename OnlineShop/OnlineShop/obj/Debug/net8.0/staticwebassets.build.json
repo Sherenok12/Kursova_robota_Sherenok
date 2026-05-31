@@ -1,0 +1,228 @@
+{
+  "Version": 1,
+  "Hash": "PxrzBmH+6XZLUlru42yEk/G6ETMKLRO+KnkG+a/DTGw=",
+  "Source": "OnlineShop",
+  "BasePath": "_content/OnlineShop",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "OnlineShop\\wwwroot",
+      "Source": "OnlineShop",
+      "ContentRoot": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\css\\site.css",
+      "SourceId": "OnlineShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "a85voa63wq",
+      "Integrity": "Osw0gaiuIw4fykO+45ekYQ3iJM09PJJGHLBF3lIDvQ4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\js\\site.js",
+      "SourceId": "OnlineShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\",
+      "BasePath": "_content/OnlineShop",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "36ie27levm",
+      "Integrity": "e+GizVXHa2lAifC/PGyDb8nmr/E3Hhk5eA1gr/QJjhc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.a85voa63wq.css",
+      "AssetFile": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13063"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Osw0gaiuIw4fykO+45ekYQ3iJM09PJJGHLBF3lIDvQ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 May 2026 07:17:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a85voa63wq"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Osw0gaiuIw4fykO+45ekYQ3iJM09PJJGHLBF3lIDvQ4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13063"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Osw0gaiuIw4fykO+45ekYQ3iJM09PJJGHLBF3lIDvQ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 May 2026 07:17:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Osw0gaiuIw4fykO+45ekYQ3iJM09PJJGHLBF3lIDvQ4="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.36ie27levm.js",
+      "AssetFile": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "337"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e+GizVXHa2lAifC/PGyDb8nmr/E3Hhk5eA1gr/QJjhc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 May 2026 07:17:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "36ie27levm"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-e+GizVXHa2lAifC/PGyDb8nmr/E3Hhk5eA1gr/QJjhc="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\shere\\source\\repos\\45\\OnlineShop\\OnlineShop\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "337"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e+GizVXHa2lAifC/PGyDb8nmr/E3Hhk5eA1gr/QJjhc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 25 May 2026 07:17:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-e+GizVXHa2lAifC/PGyDb8nmr/E3Hhk5eA1gr/QJjhc="
+        }
+      ]
+    }
+  ]
+}

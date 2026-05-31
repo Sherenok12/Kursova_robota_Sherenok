@@ -1,0 +1,105 @@
+@model ProductDetailViewModel
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+
+<div class="product-detail">
+    <img src="@Model.Product.ImagePath" alt="@Model.Product.Name" class="product-detail__img" />
+    <div class="product-detail__info">
+        <span class="product-detail__category">@Model.Product.Category?.Name</span>
+        <h1>@Model.Product.Name</h1>
+        <div class="product-detail__price">@Model.Product.Price.ToString("N0") ₴</div>
+        <div class="product-detail__desc">@Model.Product.FullDescription</div>
+
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+            <form method="post" asp-controller="Cart" asp-action="Add">
+                <input type="hidden" name="productId" value="@Model.Product.Id" />
+                <input type="hidden" name="returnUrl" value="/Product/Details/@Model.Product.Id" />
+                <button type="submit" class="btn btn--primary">🛒 Додати в кошик</button>
+            </form>
+        }
+        else
+        {
+            <a href="/Account/Login?returnUrl=/Product/Details/@Model.Product.Id" class="btn btn--primary">🛒 Додати в кошик</a>
+        }
+    </div>
+</div>
+
+@* Comments *@
+<div class="section">
+    <h2 class="section__title">Коментарі (@Model.Comments.Count)</h2>
+
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <form method="post" asp-controller="Comment" asp-action="Add" class="comment-form">
+            <input type="hidden" name="productId" value="@Model.Product.Id" />
+            <textarea name="text" placeholder="Напишіть ваш коментар..." required></textarea>
+            <button type="submit" class="btn btn--primary btn--sm">Надіслати</button>
+        </form>
+    }
+    else
+    {
+        <p class="mb-20" style="color: var(--text-muted); font-size: 0.9rem;">
+            <a href="/Account/Login?returnUrl=/Product/Details/@Model.Product.Id">Увійдіть</a>, щоб залишити коментар.
+        </p>
+    }
+
+    @if (Model.Comments.Any())
+    {
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="comment">
+                <div class="comment__header">
+                    <span class="comment__author">👤 @comment.User?.UserName</span>
+                    <span class="comment__date">@comment.CreatedAt.ToString("dd.MM.yyyy HH:mm")</span>
+                </div>
+                <div class="comment__text">@comment.Text</div>
+            </div>
+        }
+    }
+    else
+    {
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Ще немає коментарів. Будьте першим!</p>
+    }
+</div>
+
+@* Similar Products *@
+@if (Model.SimilarProducts.Any())
+{
+    <div class="section">
+        <h2 class="section__title">Схожі товари</h2>
+        <div class="mini-grid">
+            @foreach (var p in Model.SimilarProducts)
+            {
+                <div class="mini-card">
+                    <img src="@p.ImagePath" alt="@p.Name" class="mini-card__img" loading="lazy" />
+                    <div class="mini-card__body">
+                        <div class="mini-card__name"><a href="/Product/Details/@p.Id">@p.Name</a></div>
+                        <div class="mini-card__price">@p.Price.ToString("N0") ₴</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@* Recently Viewed *@
+@if (Model.RecentlyViewed.Any())
+{
+    <div class="section">
+        <h2 class="section__title">Останні переглянуті</h2>
+        <div class="mini-grid">
+            @foreach (var p in Model.RecentlyViewed)
+            {
+                <div class="mini-card">
+                    <img src="@p.ImagePath" alt="@p.Name" class="mini-card__img" loading="lazy" />
+                    <div class="mini-card__body">
+                        <div class="mini-card__name"><a href="/Product/Details/@p.Id">@p.Name</a></div>
+                        <div class="mini-card__price">@p.Price.ToString("N0") ₴</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

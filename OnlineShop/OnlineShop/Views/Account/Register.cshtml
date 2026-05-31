@@ -1,0 +1,40 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Реєстрація";
+}
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1>Реєстрація</h1>
+
+        <div asp-validation-summary="All" class="form-error mb-20"></div>
+
+        <form method="post" asp-action="Register">
+            <div class="form-group">
+                <label asp-for="UserName">Ім'я користувача</label>
+                <input asp-for="UserName" placeholder="Ваше ім'я" />
+                <span asp-validation-for="UserName" class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" placeholder="your@email.com" />
+                <span asp-validation-for="Email" class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Пароль</label>
+                <input asp-for="Password" type="password" placeholder="Мінімум 6 символів" />
+                <span asp-validation-for="Password" class="form-error"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Підтвердження пароля</label>
+                <input asp-for="ConfirmPassword" type="password" placeholder="Повторіть пароль" />
+                <span asp-validation-for="ConfirmPassword" class="form-error"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Зареєструватися</button>
+        </form>
+
+        <div class="auth-footer">
+            Вже маєте акаунт? <a href="/Account/Login">Увійти</a>
+        </div>
+    </div>
+</div>

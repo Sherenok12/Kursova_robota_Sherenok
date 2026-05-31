@@ -1,0 +1,46 @@
+@model List<Product>
+@{
+    ViewData["Title"] = "Адмін — Товари";
+}
+
+<div class="admin-nav">
+    <a href="/Admin/Products" class="btn btn--primary btn--sm">Товари</a>
+    <a href="/Admin/Categories" class="btn btn--outline btn--sm">Категорії</a>
+</div>
+
+<div class="admin-header">
+    <h1 class="page-title">Управління товарами</h1>
+    <a href="/Admin/CreateProduct" class="btn btn--primary">+ Додати товар</a>
+</div>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Категорія</th>
+            <th>Ціна</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td><a href="/Product/Details/@p.Id">@p.Name</a></td>
+                <td>@p.Category?.Name</td>
+                <td>@p.Price.ToString("N0") ₴</td>
+                <td>
+                    <div class="admin-table__actions">
+                        <a href="/Admin/EditProduct/@p.Id" class="btn btn--outline btn--sm">✏️</a>
+                        <form method="post" asp-action="DeleteProduct" asp-route-id="@p.Id"
+                              onsubmit="return confirm('Видалити товар?')">
+                            <button type="submit" class="btn btn--danger btn--sm">🗑️</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+@model List<Product>
+@{
+    ViewData["Title"] = "Каталог товарів";
+    var categories = ViewBag.Categories as List<Category>;
+    var selectedCategory = ViewBag.SelectedCategory as int?;
+    var searchQuery = ViewBag.SearchQuery as string;
+}
+
+<h1 class="page-title">Каталог товарів</h1>
+
+<div class="filter-bar">
+    <form method="get" class="filter-bar__search">
+        <input type="text" name="search" value="@searchQuery" placeholder="Пошук товарів..." />
+        @if (selectedCategory.HasValue)
+        {
+            <input type="hidden" name="categoryId" value="@selectedCategory" />
+        }
+        <button type="submit" class="btn btn--primary btn--sm">Знайти</button>
+    </form>
+</div>
+
+<div class="filter-bar">
+    <div class="filter-bar__categories">
+        <a href="/" class="filter-chip @(selectedCategory == null ? "filter-chip--active" : "")">Усі</a>
+        @if (categories != null)
+        {
+            @foreach (var cat in categories)
+            {
+                <a href="/?categoryId=@cat.Id" class="filter-chip @(selectedCategory == cat.Id ? "filter-chip--active" : "")">@cat.Name</a>
+            }
+        }
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="products-grid">
+        @foreach (var product in Model)
+        {
+            <div class="product-card">
+                <img src="@product.ImagePath" alt="@product.Name" class="product-card__img" loading="lazy" />
+                <div class="product-card__body">
+                    <div class="product-card__name">
+                        <a href="/Product/Details/@product.Id">@product.Name</a>
+                    </div>
+                    <div class="product-card__desc">@product.ShortDescription</div>
+                    <div class="product-card__price">@product.Price.ToString("N0") ₴</div>
+                    <div class="product-card__actions">
+                        <a href="/Product/Details/@product.Id" class="btn btn--outline btn--sm">Детальніше</a>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <form method="post" asp-controller="Cart" asp-action="Add">
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                <button type="submit" class="btn btn--primary btn--sm">🛒 В кошик</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="btn btn--primary btn--sm">🛒 В кошик</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="no-products">Товарів не знайдено 😔</div>
+}
